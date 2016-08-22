@@ -1,0 +1,6 @@
+{
+  "Host": "localhost",
+  "ChatPort": 6000,
+  "WebServicePort": 8080,
+  "MaxClient": 100
+}
