@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"net"
+  "os"
 	"regexp"
 	"strings"
 )
@@ -26,7 +27,7 @@ func (c *ChatSession) Start() {
 	for {
 		line, err := c.Reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("%v", err)
+			fmt.Fprintf(os.Stderr,"Can't read from stream, error %v.", err)
 		}
 		if c.commandParser(line) != true {
 			break
@@ -38,7 +39,7 @@ func (c *ChatSession) StartInput() {
 	for resp := range c.in {
 		_, err := writer.WriteString(resp)
 		if err != nil {
-			fmt.Println("%v", err)
+			fmt.Fprintf(os.Stderr,"Can't write to stream, error %v.", err)
 		}
 		writer.Flush()
 	}
