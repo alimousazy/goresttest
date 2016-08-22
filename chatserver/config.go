@@ -9,6 +9,7 @@ type Config struct {
 	Host           string
 	ChatPort       uint16
 	WebServicePort uint16
+	MaxClient      int64
 	LogPath        string
 }
 

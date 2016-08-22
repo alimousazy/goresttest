@@ -24,7 +24,7 @@ func (l *Logger) log(text string) error {
 }
 
 func NewLogger(path string) (*Logger, error) {
-	file, err := os.OpenFile(path, os.O_APPEND|os.O_WRONLY, 0600)
+	file, err := os.OpenFile(path, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
 	if err != nil {
 		return nil, err
 	}
